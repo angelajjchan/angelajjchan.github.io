@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Slider with Images and Iframe</title>
+<title>Slider with Images and Iframes</title>
 <style>
     body, html {
         height: 100%;
@@ -19,6 +19,7 @@
         justify-content: center;
     }
     .slider {
+        position: relative;
         display: flex;
         transition: transform 0.5s ease;
         height: 100%; /* Make the slider take up full height of the container */
@@ -67,20 +68,25 @@
 </head>
 <body>
 <div class="slider-container">
-    <button class="zoom-button" onclick="zoomIn()"> + </button>
+    <button class="zoom-button" onclick="zoomIn()">Zoom In</button>
     <div class="slider">
+        <div class="slide">
+            <img src="image1.jpg" alt="Image 1">
+        </div>
         <div class="slide">
             <iframe src="https://angelajjchan.sirv.com/Spins/denim/1_denim.spin" frameborder="0"></iframe>
         </div>
         <div class="slide">
-            <img src="https://angelajjchan.sirv.com/Spins/denim/2_3D.png
-" alt="Image 1">
+            <img src="https://angelajjchan.sirv.com/Images/portfolio/Slide1.jpeg" alt="Image 2">
+        </div>
+        <div class="slide">
+            <iframe src="https://www.example.com/page2" frameborder="0"></iframe>
         </div>
     </div>
 </div>
 <div class="navigation">
-    <button onclick="prevSlide()">⮜</button>
-    <button onclick="nextSlide()">⮞</button>
+    <button onclick="prevSlide()">Prev</button>
+    <button onclick="nextSlide()">Next</button>
 </div>
 
 <script>
@@ -122,12 +128,6 @@
             images[count].classList.add('zoomed');
         }
     }
-    const images = document.querySelectorAll('.slide img');
-    images.forEach(img => {
-        img.addEventListener('click', () => {
-            img.classList.toggle('zoomed');
-        });
-    });
 </script>
 </body>
 </html>
