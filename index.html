@@ -113,6 +113,15 @@
         slider.style.transform = `translateX(${-count * 100}%)`;
     }
 
+    function zoomIn() {
+        const currentImage = document.querySelector('.slide img.zoomed');
+        if (currentImage) {
+            currentImage.classList.remove('zoomed');
+        } else {
+            const images = document.querySelectorAll('.slide img');
+            images[count].classList.add('zoomed');
+        }
+    }
     const images = document.querySelectorAll('.slide img');
     images.forEach(img => {
         img.addEventListener('click', () => {
