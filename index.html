@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -37,6 +36,7 @@
     }
     .slide img.zoomed {
         transform: scale(2);
+        cursor: grab; /* Change cursor to grab when zoomed */
     }
     .slide iframe {
         width: 100%;
@@ -63,13 +63,16 @@
 <div class="slider-container">
     <div class="slider">
         <div class="slide">
-            <img src="https://angelajjchan.sirv.com/Images/portfolio/Slide1.jpeg" alt="Image 1">
+            <img src="https://angelajjchan.sirv.com/Spins/2-in-1/2_detail.png" alt="Image 1">
+        </div>
+        <div class="slide">
+            <iframe src="https://angelajjchan.sirv.com/Spins/2-in-1/3_inner.spin" frameborder="0"></iframe>
+        </div>
+        <div class="slide">
+            <img src="https://angelajjchan.sirv.com/Spins/2-in-1/4_detail.png" alt="Image 2">
         </div>
         <div class="slide">
             <iframe src="https://angelajjchan.sirv.com/Spins/2-in-1/1_outer.spin" frameborder="0"></iframe>
-        </div>
-        <div class="slide">
-            <img src="https://angelajjchan.sirv.com/Images/portfolio/Slide2.jpeg" alt="Image 2">
         </div>
     </div>
 </div>
@@ -112,6 +115,41 @@
     images.forEach(img => {
         img.addEventListener('click', () => {
             img.classList.toggle('zoomed');
+        });
+
+        let isDragging = false;
+        let startX, startY, scrollLeft, scrollTop;
+
+        img.addEventListener('mousedown', (e) => {
+            if (img.classList.contains('zoomed')) {
+                isDragging = true;
+                startX = e.pageX - img.offsetLeft;
+                startY = e.pageY - img.offsetTop;
+                scrollLeft = img.scrollLeft;
+                scrollTop = img.scrollTop;
+                img.style.cursor = 'grabbing';
+            }
+        });
+
+        img.addEventListener('mouseleave', () => {
+            isDragging = false;
+            img.style.cursor = 'grab';
+        });
+
+        img.addEventListener('mouseup', () => {
+            isDragging = false;
+            img.style.cursor = 'grab';
+        });
+
+        img.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const x = e.pageX - img.offsetLeft;
+            const y = e.pageY - img.offsetTop;
+            const walkX = (x - startX) * 2; // Adjust the multiplier for faster/slower scrolling
+            const walkY = (y - startY) * 2;
+            img.scrollLeft = scrollLeft - walkX;
+            img.scrollTop = scrollTop - walkY;
         });
     });
 </script>
