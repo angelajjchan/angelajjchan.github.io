@@ -39,12 +39,10 @@
         overflow: hidden;
     }
     .slide img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* or 'contain' if you want the whole image visible */
-        display: block;
+        max-width: 100%;
+        max-height: 100%;
         transition: transform 0.3s;
-        cursor: zoom-in;
+        cursor: zoom-in; /* Set cursor to zoom-in for image slides */
     }
     .slide img.zoomed {
         transform: scale(2);
@@ -75,7 +73,7 @@
     <div class="slider">
 <        div class="slide">
             <div class="aspect-ratio-box">
-                <img src="https://angelajjchan.sirv.com/Spins/2-in-1/2_detail.png" alt="Image 1">
+                <img src="https://angelajjchan.sirv.com/Spins/green-dress/1_green-dress.png" alt="Image 1">
             </div>
         </div>
         <div class="slide">
@@ -127,6 +125,7 @@
 </script>
 </body>
 </html>
+
 
 
 
