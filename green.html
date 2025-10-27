@@ -1,8 +1,7 @@
-<html lang="en">
-<head>
-<meta charset="UTF-8">
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Slider with Images and Iframe</title>
+<title>Green Dress</title>
 <style>
     body, html {
         height: 100%;
@@ -62,9 +61,57 @@
 <div class="slider-container">
     <div class="slider">
         <div class="slide">
+            <img src="./green2_files/1_green-dress.png" alt="Image 1" class="">
+        </div>
+        <div class="slide">
+            <iframe src="./green2_files/2_green-dress.html" frameborder="0"></iframe>
+        </div>
+        <div class="slide">
+            <img src="./green2_files/3_posing.png" alt="Image 3">
+        </div>
+    </div>
+</div>
+<div class="navigation">
+    <button onclick="prevSlide()">&lt;</button>
+    <button onclick="nextSlide()">&gt;</button>
+</div>
 
+<script>
+    const slider = document.querySelector('.slider');
+    let count = 0;
 
+    function nextSlide() {
+        const images = document.querySelectorAll('.slide img');
+        images.forEach(img => {
+            img.classList.remove('zoomed');
+        });
 
+        count++;
+        if (count === document.querySelectorAll('.slide').length) {
+            count = 0;
+        }
+        slider.style.transform = `translateX(${-count * 100}%)`;
+    }
 
+    function prevSlide() {
+        const images = document.querySelectorAll('.slide img');
+        images.forEach(img => {
+            img.classList.remove('zoomed');
+        });
 
+        count--;
+        if (count < 0) {
+            count = document.querySelectorAll('.slide').length - 1;
+        }
+        slider.style.transform = `translateX(${-count * 100}%)`;
+    }
 
+    const images = document.querySelectorAll('.slide img');
+    images.forEach(img => {
+        img.addEventListener('click', () => {
+            img.classList.toggle('zoomed');
+        });
+    });
+</script>
+
+</body></html>
