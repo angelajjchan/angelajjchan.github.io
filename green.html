@@ -30,7 +30,7 @@
     }
     .slide img {
         max-width: 100%;
-        height: auto;
+        object-fit: contain;
         max-height: 100%;
         transition: transform 0.3s;
         cursor: zoom-in; /* Set cursor to zoom-in for image slides */
@@ -65,6 +65,16 @@
         <div class="slide">
             <img src="https://angelajjchan.sirv.com/Spins/green-dress/1_green-dress.png" alt="Image 1">
         </div>
+        <div class="slide">
+            <img class="Sirv" data-src="https://angelajjchan.sirv.com/Spins/green-dress/1_green-dress.png" alt="">
+<script src="https://scripts.sirv.com/sirvjs/v3/sirv.js"></script>
+        </div>
+        <div class="slide">
+            <img src="https://angelajjchan.sirv.com/Spins/green-dress/1_green-dress.png" width="3840" height="2160" alt="">
+        </div>
+        <div class="slide">
+            <img src="https://angelajjchan.sirv.com/Spins/green-dress/1_green-dress.png" style="object-fit: contain;">
+        </div>        
         <div class="slide">
             <iframe src="https://angelajjchan.sirv.com/Spins/green-dress/2_green-dress.spin" frameborder="0"></iframe>
         </div>
@@ -117,4 +127,5 @@
 </script>
 </body>
 </html>
+
 
