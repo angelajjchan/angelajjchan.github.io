@@ -28,12 +28,21 @@
         justify-content: center;
         align-items: center;
     }
+    .aspect-ratio-box {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 4 / 3; /* Change to your desired ratio */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #fff; /* Optional: background color for letterboxing */
+        overflow: hidden;
+    }
     .slide img {
-        height: 100vh;         /* Set image height relative to viewport height */
-        width: auto;          /* Width adjusts to maintain aspect ratio */
-        max-width: 100%;      /* Prevents overflow horizontally */
-        display: block;       /* Removes inline spacing */
-        margin: 0 auto;       /* Center the image horizontally */
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* or 'contain' if you want the whole image visible */
+        display: block;
         transition: transform 0.3s;
         cursor: zoom-in;
     }
@@ -64,8 +73,10 @@
 <body>
 <div class="slider-container">
     <div class="slider">
-        <div class="slide">
-            <img src="https://angelajjchan.sirv.com/Spins/green-dress/1_green-dress.png" alt="Image 1">
+<        div class="slide">
+            <div class="aspect-ratio-box">
+                <img src="https://angelajjchan.sirv.com/Spins/2-in-1/2_detail.png" alt="Image 1">
+            </div>
         </div>
         <div class="slide">
             <iframe src="https://angelajjchan.sirv.com/Spins/green-dress/2_green-dress.spin" frameborder="0"></iframe>
@@ -116,6 +127,7 @@
 </script>
 </body>
 </html>
+
 
 
 
